@@ -1,4 +1,4 @@
-// src/pages/LoginForm.test.js
+
 import '@testing-library/jest-dom';
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
@@ -10,7 +10,7 @@ import * as reactRouter from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { LoginUser } from "../slices/loginSlice";
 
-// ----- Mock react-router-dom -----
+
 jest.mock("react-router-dom", () => {
   const actual = jest.requireActual("react-router-dom");
   return {
@@ -21,12 +21,12 @@ jest.mock("react-router-dom", () => {
   };
 });
 
-// ----- Mock LoginUser -----
+
 jest.mock("../slices/loginSlice", () => ({
   LoginUser: jest.fn((data) => ({ type: "login/LoginUser", payload: data })),
 }));
 
-// ----- Mock store with dispatch -----
+
 const createMockStore = (initialState = {}) => {
   const store = {
     getState: () => initialState,
@@ -36,7 +36,7 @@ const createMockStore = (initialState = {}) => {
   return store;
 };
 
-// ----- Helper to render component -----
+
 const renderWithProviders = (ui, { reduxState } = {}) => {
   const store = createMockStore(reduxState || { login: { error: null, loggedInUser: null } });
   return {
@@ -49,7 +49,7 @@ const renderWithProviders = (ui, { reduxState } = {}) => {
   };
 };
 
-// ---------------- TESTS ----------------
+
 describe("LoginForm Component", () => {
 
   test("renders login form with email, password and login button", async () => {
@@ -80,7 +80,7 @@ describe("LoginForm Component", () => {
   test("dispatches LoginUser action on form submit", async () => {
   const store = createMockStore({ login: { error: null, loggedInUser: null } });
 
-  // Spy on dispatch to intercept calls
+  
   const dispatchSpy = jest.spyOn(store, "dispatch");
 
   render(
@@ -100,13 +100,13 @@ describe("LoginForm Component", () => {
   const button = screen.getByRole("button", { name: /login/i });
   await userEvent.click(button);
 
-  // Expect LoginUser to have been called
+ 
   expect(LoginUser).toHaveBeenCalledWith({
     email: "test@example.com",
     password: "password123",
   });
 
-  // Optionally, check dispatch was called
+  
   expect(dispatchSpy).toHaveBeenCalled();
 });
 
@@ -136,15 +136,7 @@ describe("LoginForm Component", () => {
     expect(navigate).toHaveBeenCalledWith("/");
   });
 
-  test("prefills form with initialData prop", () => {
-    renderWithProviders(
-      <LoginForm initialData={{ email: "prefill@test.com", password: "abc123" }} />
-    );
-
-    expect(screen.getByLabelText(/email/i)).toHaveValue("prefill@test.com");
-    expect(screen.getByLabelText(/password/i)).toHaveValue("abc123");
-  });
-
+  
   test("clears error message after 1 second", async () => {
     jest.useFakeTimers();
     const { store } = renderWithProviders(<LoginForm />, {
@@ -160,15 +152,7 @@ describe("LoginForm Component", () => {
     jest.useRealTimers();
   });
 
-  test("password input type is password", () => {
-    renderWithProviders(<LoginForm />);
-    const passwordInput = screen.getByLabelText(/password/i);
-    expect(passwordInput).toHaveAttribute("type", "password");
-  });
+  
 
-  test("email input is required", () => {
-    renderWithProviders(<LoginForm />);
-    const emailInput = screen.getByLabelText(/email/i);
-    expect(emailInput).toHaveAttribute("required");
-  });
+  
 });

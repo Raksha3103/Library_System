@@ -1,4 +1,4 @@
-// src/pages/AdminRequestsPage.test.js
+
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
@@ -6,10 +6,10 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import * as reactRouter from "react-router-dom";
 
-// Component
+
 import AdminRequestsPage from "./AdminRequestPage";
 
-// ----- Mock Redux slices -----
+
 import * as RequestSlice from "../slices/RequestSlice";
 import * as BorrowSlice from "../slices/BorrowSlice";
 
@@ -25,7 +25,7 @@ jest.mock("../slices/BorrowSlice", () => ({
   fetchAdminBorrows: jest.fn(),
 }));
 
-// ----- Mock useNavigate -----
+
 jest.mock("react-router-dom", () => {
   const actual = jest.requireActual("react-router-dom");
   return {
@@ -35,14 +35,14 @@ jest.mock("react-router-dom", () => {
   };
 });
 
-// ----- Mock Store -----
+
 const createMockStore = (initialState = {}) => ({
   getState: () => initialState,
   dispatch: jest.fn(),
   subscribe: jest.fn(),
 });
 
-// ----- Render helper -----
+
 const renderWithProviders = (ui, { reduxState } = {}) => {
   const store = createMockStore(
     reduxState || {
@@ -73,7 +73,7 @@ const renderWithProviders = (ui, { reduxState } = {}) => {
   };
 };
 
-// ----------------- TESTS -----------------
+
 describe("AdminRequestsPage Component", () => {
   let navigateMock;
 
@@ -92,7 +92,7 @@ describe("AdminRequestsPage Component", () => {
     expect(screen.getAllByText("Reject")).toHaveLength(2);
   });
 
-  test("approving a Borrow request dispatches correct actions and updates available copies", async () => {
+  test("approving a Borrow request dispatches  and updates available copies", async () => {
     const approveSpy = jest.spyOn(RequestSlice, "approveRequest").mockImplementation((req) => ({ type: "requests/approveRequest", payload: req }));
     const bookBorrowedSpy = jest.spyOn(BorrowSlice, "bookBorrowed").mockImplementation(({ bookId }) => ({ type: "borrows/bookBorrowed", payload: { bookId } }));
     const fetchAdminBorrowsSpy = jest.spyOn(BorrowSlice, "fetchAdminBorrows").mockImplementation(() => ({ type: "borrows/fetchAdminBorrows" }));
@@ -108,12 +108,12 @@ describe("AdminRequestsPage Component", () => {
       expect(fetchAdminBorrowsSpy).toHaveBeenCalled();
     });
 
-    // Simulate Redux state update for available copies
+  
     store.getState().books.list[0].availableCopies -= 1;
     expect(store.getState().books.list[0].availableCopies).toBe(4);
   });
 
-  test("approving a Return request dispatches correct actions and updates available copies", async () => {
+  test("approving a Return request dispatches and updates available copies", async () => {
     const approveSpy = jest.spyOn(RequestSlice, "approveRequest").mockImplementation((req) => ({ type: "requests/approveRequest", payload: req }));
     const bookReturnedSpy = jest.spyOn(BorrowSlice, "bookReturned").mockImplementation(({ bookId }) => ({ type: "borrows/bookReturned", payload: { bookId } }));
     const fetchAdminBorrowsSpy = jest.spyOn(BorrowSlice, "fetchAdminBorrows").mockImplementation(() => ({ type: "borrows/fetchAdminBorrows" }));
@@ -129,7 +129,6 @@ describe("AdminRequestsPage Component", () => {
       expect(fetchAdminBorrowsSpy).toHaveBeenCalled();
     });
 
-    // Simulate Redux state update for available copies
     store.getState().books.list[1].availableCopies += 1;
     expect(store.getState().books.list[1].availableCopies).toBe(3);
   });

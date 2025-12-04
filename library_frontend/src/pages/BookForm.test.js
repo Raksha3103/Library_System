@@ -1,4 +1,4 @@
-// src/pages/BookForm.test.js
+
 import '@testing-library/jest-dom';
 
 import React from "react";
@@ -21,14 +21,14 @@ jest.mock("../slices/authorSlice", () => ({
   fetchAuthors: jest.fn(),
 }));
 
-// Mock Redux store
+
 const createMockStore = (state = {}) => ({
   getState: () => state,
   dispatch: jest.fn(),
   subscribe: jest.fn(),
 });
 
-// Render helper
+
 const renderWithStoreAndRouter = (ui, { reduxState, route = "/books/add" } = {}) => {
   const store = createMockStore(
     reduxState || {
@@ -89,9 +89,9 @@ describe("BookForm Behavior Tests", () => {
     expect(screen.getByLabelText(/Available Copies:/i)).toHaveValue(5); // auto sync
   });
 
- test("handles availableCopies adjustment correctly when totalCopies changes", async () => {
+ test("availableCopies adjustment correctly when totalCopies changes", async () => {
   renderWithStoreAndRouter(<BookForm />, {
-    route: "/books/edit/1", // <-- edit mode
+    route: "/books/edit/1", 
     reduxState: {
       books: { 
         selectedBook: { 
@@ -148,7 +148,7 @@ describe("BookForm Behavior Tests", () => {
     });
   });
 
-  test("prompts confirmation and updates book in edit mode", async () => {
+  test("gives confirmation and updates book in edit mode", async () => {
     const mockConfirm = jest.spyOn(window, "confirm").mockImplementation(() => true);
     renderWithStoreAndRouter(<BookForm />, {
       route: "/books/edit/5",
@@ -166,7 +166,7 @@ describe("BookForm Behavior Tests", () => {
     });
   });
 
-  test("does not submit if update confirmation is cancelled", async () => {
+  test("does not submit if update  is cancelled", async () => {
     const mockConfirm = jest.spyOn(window, "confirm").mockImplementation(() => false);
     renderWithStoreAndRouter(<BookForm />, {
       route: "/books/edit/5",
