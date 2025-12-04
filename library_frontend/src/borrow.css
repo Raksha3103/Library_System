@@ -1,0 +1,114 @@
+.page-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e1dff7, #ece6fd);
+}
+
+.history-container {
+  width: 100%;
+  max-width: none;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(137, 110, 255, 0.2);
+}
+
+.page-title {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.history-table th {
+  text-align: left;
+  color: #4b0082;
+  padding-bottom: 10px;
+}
+
+.history-table td {
+  background: #faf8ff;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.history-table tr:hover td {
+  background: #eee5ff;
+  transition: 0.2s;
+}
+
+.status {
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.status.returned {
+  background: #eafbe7;
+  color: #138000;
+}
+
+.status.borrowed {
+  background: #ffe7e7;
+  color: #b10000;
+}
+
+.no-data {
+  text-align: center;
+  color: #666;
+  padding: 10px 0;
+}
+.filter-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.tab-btn {
+  background: #ece6fd;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5b02aa;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background: #5b02aa;
+  color: #fff;
+}
+
+.tab-btn:hover {
+  opacity: 0.8;
+}
+
+.search-bar {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 220px;
+}
+
+.search-bar:focus {
+  border-color: #5b02aa;
+}

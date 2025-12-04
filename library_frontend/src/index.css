@@ -1,0 +1,321 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.login-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+
+  /* Patterned background image */
+ background: #f7f9fc;
+  background-size: cover; /* or 'auto' if you want to keep the pattern original size */
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: -10px; 
+  z-index: 10;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://static.vecteezy.com/system/resources/thumbnails/004/297/596/small/education-logo-open-book-dictionary-textbook-or-notebook-with-sunrice-icon-modern-emblem-idea-concept-design-for-business-libraries-schools-universities-educational-courses-vector.jpg")
+    center center no-repeat;
+  background-size: 20%;
+  opacity: 0.05; /* subtle background logo effect */
+  z-index: 1;
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  width: 360px;
+  padding: 2.5rem 2.5rem;
+  border-radius: 15px;
+  
+  background: #ffffff; /* solid white */
+  color: #333; /* darker text for readability */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.login-logo img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.login-card input:focus {
+  border-color: #6a5acd;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00b5e6;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.login-card button:hover {
+  background-color: #009ac5;
+}
+
+.msg-error {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ff4d4d;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 2000;
+  animation: slideIn 0.4s ease-out;
+}
+
+.msg-error::before {
+  content: "⚠️"; /* Notification icon */
+  font-size: 18px;
+}
+
+
+.register-text {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.dashboard-container {
+  padding: 30px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #d9d9f3, #f2e8fc);
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dashboard-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+
+.action-buttons button {
+  background: #0066ff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.action-buttons button:hover {
+  background: #5346b3;
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-section input {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-section button {
+  background: #6a5acd;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-section button:hover {
+  background: #372e78;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.book-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.book-card h3 {
+  font-size: 18px;
+  color:black;
+}
+
+.book-card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #0066ff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.book-card button:hover {
+  background: #5d4ec9;
+}
+
+.error-popup {
+  position: fixed;
+  /* top: 70px; */
+  right: 40%;
+  background: #ff4d4d;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideIn 0.4s ease-out;
+  z-index: 2000;
+}
+
+.error-popup button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .search-section {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-section input {
+    width: 100%;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-buttons button {
+    width: 100%;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .search-section input {
+    width: 180px;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}

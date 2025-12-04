@@ -1,0 +1,77 @@
+
+
+.form-card {
+  max-width: 450px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  border: 1px solid #bbb;
+  outline: none;
+  font-size: 1rem;
+}
+
+.input-group input:focus {
+  border-color: #2a86ff;
+  box-shadow: 0px 0px 4px rgba(42, 134, 255, 0.5);
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background: #2a86ff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #0d6efd;
+}
+
+.btn-cancel {
+  background: #d9534f;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #b02a37;
+}
